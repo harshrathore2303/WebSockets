@@ -14,6 +14,20 @@
 - Once the communication link is established and the connections are opened, message exchange will take place in bidirectional mode until the connection persists between client-server. If anyone of them (client-server) dies or decide to close the connection then it is closed by both the party.
 - The way in which the socket works is slightly different from how HTTP works, the status code 101 denotes the switching protocol in WebSocket.
 
+# Why websocket?
+- Developed after Long polling because of overuse of resources.
+
+# How WebSockets Work (Behind the Scenes)
+- Websockets initializes as HTTP request and response. WebSocket connections are established by upgrading an HTTP request/response pair.
+- This is done with the help of header such as connection, upgrade
+
+# Data Transfer
+- frames means data segments and communication from both side is done in frames.
+- **text frame**:- contains text data 
+- **binary data frames**:- contains binary data 
+- **ping/pong frames**:- are used to check the connection, sent from the server, the browser responds to these automatically.
+- there’s also “connection close frame” and a few other service frames.
+
 ## Applications
 - Chat application
 - Gaming application
@@ -23,5 +37,12 @@ e.g. in a trading website or bitcoin trading, for displaying the price fluctuati
 
 # Conclusion
 Websockets are faster than HTTP. Many recent websites are using websocket to make web app faster. But use websockets according to need.
+
+[For more reference](https://sookocheff.com/post/networking/how-do-websockets-work/)
+
+# What Socket.IO is
+- Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server.
+- 
+
 
 ![WebSocket Connection](image-1.png)
