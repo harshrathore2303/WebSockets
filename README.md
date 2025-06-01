@@ -14,8 +14,12 @@
 - Once the communication link is established and the connections are opened, message exchange will take place in bidirectional mode until the connection persists between client-server. If anyone of them (client-server) dies or decide to close the connection then it is closed by both the party.
 - The way in which the socket works is slightly different from how HTTP works, the status code 101 denotes the switching protocol in WebSocket.
 
+![WebSocket Connection1](image-1.png)
+
 # Why websocket?
 - Developed after Long polling because of overuse of resources.
+
+![Read after long polling](image-2.png)
 
 # How WebSockets Work (Behind the Scenes)
 - Websockets initializes as HTTP request and response. WebSocket connections are established by upgrading an HTTP request/response pair.
@@ -43,6 +47,3 @@ Websockets are faster than HTTP. Many recent websites are using websocket to mak
 # What Socket.IO is
 - Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server.
 - 
-
-
-![WebSocket Connection](image-1.png)
