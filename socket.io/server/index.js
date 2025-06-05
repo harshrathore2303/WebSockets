@@ -18,31 +18,50 @@ app.use(
 );
 //creating a instance of server
 const io = new Server(server, {
-    cors: {
+  cors: {
     origin: "*",
     methods: ["GET", "POST"],
     credentials: true,
-  }
+  },
 });
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+
+// it is used as middleware
+io.use((socket, next) => {
+  next();
+});
+
+// io = entire circuit
 io.on("connection", (socket) => {
   console.log("User Joined");
   console.log("Id:", socket.id);
-//   socket.emit("welcome", `Welcome to the server ${socket.id}`);
-//   socket.broadcast.emit("welcome", `${socket.id} joined the server`);
-    socket.on("disconnect", () => {
-        console.log("User disconnected", socket.id);
-    });
+  //   socket.emit("welcome", `Welcome to the server ${socket.id}`);
+  //   socket.broadcast.emit("welcome", `${socket.id} joined the server`);
+
+  socket.on("message", ({ message, room }) => {
+    console.log("message from frontend: ", message);
+    // both are same this and below ->socket.to(room).emit("receive-message", message);
+    io.to(room).emit("receive-message", message);
+  });
+
+  socket.on("join-room", (room) => {
+    socket.join(room);
+    console.log(`User joined room ${room}`);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected", socket.id);
+  });
 });
 
 /*
-    * after doing above step who will notice that "User connected" and "Id" will print 2 times after reloading. Its because of <StrictMode/> in react
-    * io.on send message to all sockets
-*/
+ * after doing above step who will notice that "User connected" and "Id" will print 2 times after reloading. Its because of <StrictMode/> in react
+ * io.on send message to all sockets
+ */
 
 //uses the same instance as createServer uses therefore there is no point in using this app.listen after create server with http and using with io.
 // app.listen(3000, () => {
@@ -50,5 +69,5 @@ io.on("connection", (socket) => {
 // });
 
 server.listen(port, () => {
-    console.log(`Server started in port ${port}`);
-})
+  console.log(`Server started in port ${port}`);
+});
