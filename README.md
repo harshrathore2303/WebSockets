@@ -11,7 +11,7 @@
 - Communication protocol like HTTP/FTP/SMTP.
 - It is a stateful protocol, which means the connection between client and server will stay alive until it gets terminated by either party (client or server). After closing the connection by either of the client or server, the connection is terminated from both ends.
 - client-server handshaking
-- Once the communication link is established and the connections are opened, message exchange will take place in bidirectional mode until the connection persists between client-server. If anyone of them (client-server) dies or decide to close the connection then it is closed by both the party.
+- Once the communication link is established and the connections are opened, message exchange will take place in bidirectional mode until the connection persists between client-server. If either the client or server closes the connection, it is terminated from both ends.
 - The way in which the socket works is slightly different from how HTTP works, the status code 101 denotes the switching protocol in WebSocket.
 
 ![WebSocket Connection1](image-1.png)
@@ -90,4 +90,8 @@ Websockets are faster than HTTP. Many recent websites are using websocket to mak
 # io.to(room).emit(...) and socket.join(room)
 - For working with rooms/channels (e.g., private chat)
 
-All above methods can be seen in implementation.
+# 🤝 Contribute
+Feel free to contribute by adding more real-world examples, improving explanations, or making the content easier to understand for beginners. Your contributions are welcome and appreciated!
+
+## 📌 Note
+This document is for educational purposes and may evolve with future improvements and contributions.
