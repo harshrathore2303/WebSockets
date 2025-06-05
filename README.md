@@ -46,4 +46,48 @@ Websockets are faster than HTTP. Many recent websites are using websocket to mak
 
 # What Socket.IO is
 - Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server.
-- 
+- Socket.IO adds additional metadata to each packet. That is why a WebSocket client will not be able to successfully connect to a Socket.IO server, and a Socket.IO client will not be able to connect to a plain WebSocket server either.
+- In socket.IO data is wrapped with metadata.
+
+# Why Can't a Raw WebSocket Client Connect to a Socket.IO Server?
+- Socket.IO expect a handshake in specific format.
+- It looks for a specific HTTP polling fallback before upgrading to WebSocket.
+- The frame format for data is different from raw WebSocket.
+
+# How it works
+- Socket.IO is a full-duplex communication system built on top of low-level transports like WebSockets and HTTP long polling.
+- It ensures reliable, real-time communication between client and server with a simple API.
+
+# Engine.IO
+- Engine.IO is the low-level engine that powers Socket.IO.
+-  It’s the foundational library responsible for handling the transport layer, such as managing connections, handling upgrades (e.g., from polling to WebSocket), and providing a consistent, reliable communication channel.
+
+# Methods
+- ![Socket and io](image-3.png)
+
+# io.on('connection', callback)
+- Fired when a new client connects.
+- socket represents the connected client.
+
+# socket.on('eventName', callback)
+- Listens for a specific event sent by the client.
+
+# socket.emit('eventName', data)
+- Sends a message to the connected client only.
+
+# io.emit('eventName', data)
+- Sends a message to all connected clients.
+
+# socket.broadcast.emit('eventName', data)
+- Sends a message to all clients except the sender.
+
+# socket.disconnect()
+- Manually disconnects a client.
+
+# socket.on('disconnect', callback)
+- Triggered when a client disconnects.
+
+# io.to(room).emit(...) and socket.join(room)
+- For working with rooms/channels (e.g., private chat)
+
+All above methods can be seen in implementation.
