@@ -62,7 +62,7 @@ Websockets are faster than HTTP. Many recent websites are using websocket to mak
 - Engine.IO is the low-level engine that powers Socket.IO.
 -  It’s the foundational library responsible for handling the transport layer, such as managing connections, handling upgrades (e.g., from polling to WebSocket), and providing a consistent, reliable communication channel.
 
-# Methods
+## Methods
 - ![Socket and io](image-3.png)
 
 # io.on('connection', callback)
@@ -90,8 +90,21 @@ Websockets are faster than HTTP. Many recent websites are using websocket to mak
 # io.to(room).emit(...) and socket.join(room)
 - For working with rooms/channels (e.g., private chat)
 
+
 # 🤝 Contribute
 Feel free to contribute by adding more real-world examples, improving explanations, or making the content easier to understand for beginners. Your contributions are welcome and appreciated!
 
 ## 📌 Note
 This document is for educational purposes and may evolve with future improvements and contributions.
+
+## 🙏 Credits
+
+Some explanations and code examples are adapted from publicly available resources such as:
+- [Sookocheff – How WebSockets Work](https://sookocheff.com/post/networking/how-do-websockets-work/)
+- [Socket.IO Documentation](https://socket.io/docs/)
+- [6 Pack Programmer](https://www.youtube.com/watch?v=_h7Pc1woq-I)
+
+## 📄 License
+This project is licensed under the [MIT License](LICENSE).
+
+All content is used for educational purposes.
