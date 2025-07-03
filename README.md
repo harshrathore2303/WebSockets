@@ -1,5 +1,5 @@
 # HTTP
-- HTTP is unidirectional, where the client sends the request, and the server sends the response.
+- HTTP is an unidirectional, where the client sends the request, and the server sends the response.
 - HTTP is a stateless protocol that runs on top of TCP which is a connection-oriented protocol it guarantees the delivery of data packet transfer
 - Uses the three-way handshaking methods and re-transmits the lost packets.
 - HTTP can run on top of any reliable connection-oriented protocol such as TCP or SCTP.
